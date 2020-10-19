@@ -19,7 +19,7 @@ public class DiscountManagerImpl implements DiscountManager {
 
 		Map<Slabs, Slab> discountSlabs = AppUtility.getDiscountSlabsForCustomer(customerType);
 
-		return discountSlabs.isEmpty() ? purchaseAmount
+		return discountSlabs.isEmpty() ? 0
 				: discountSlabs.entrySet().stream().mapToInt(p -> (slabDiscount(purchaseAmount, p.getValue()))).sum();
 
 	}
